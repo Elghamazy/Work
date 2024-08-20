@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shift Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="/manifest.json">
+</head>
+<body>
+    <div class="container">
+        <h1>Shift Tracker</h1>
+        <button id="shiftButton">Start Shift</button>
+        <p id="shiftStatus">Shift not started</p>
+        <<a href="view_shifts.html">View Shifts</a>
+    </div>
+    <script src="offline.js"></script>
+    <script>
+       if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/service-worker.js')
+  .then(reg => console.log('Service worker registered', reg))
+  .catch(err => console.warn('Service worker registration failed', err));
+       }
+    </script>
+</body>
+</html>
