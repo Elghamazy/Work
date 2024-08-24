@@ -31,9 +31,9 @@ app.post('/api/shifts/start', async (req, res) => {
     const currentHour = now.getHours();
 
     // Check if current time is between 4 PM and 8 PM
-    if (currentHour < 16 || currentHour >= 20) {
-        return res.status(400).json({ success: false, message: 'Shift start time is between 4 PM and 8 PM only' });
-    }
+    // if (currentHour < 16 || currentHour >= 20) {
+        //return res.status(400).json({ success: false, message: 'Shift start time is between 4 PM and 8 PM only' });
+    // }
 
     // Check if there's already an active shift
     const activeShift = await Shift.findOne({ endTime: null });
@@ -57,9 +57,9 @@ app.post('/api/shifts/end', async (req, res) => {
     const currentHour = now.getHours();
 
     // Check if current time is between 5 AM and 10 AM
-    if (currentHour < 5 || currentHour >= 10) {
-        return res.status(400).json({ success: false, message: 'Shift end time is between 5 AM and 10 AM only' });
-    }
+    // if (currentHour < 5 || currentHour >= 10) {
+        // return res.status(400).json({ success: false, message: 'Shift end time is between 5 AM and 10 AM only' });
+    // }
 
     const shifts = await Shift.find({ endTime: null });
     if (shifts.length > 0) {
@@ -82,8 +82,22 @@ function calculateHours(startTime, endTime) {
 // Sync Shifts
 app.post('/api/shifts/sync', async (req, res) => {
     const shifts = req.body;
-    await Shift.insertMany(shifts);
-    res.json({ success: true });
+
+    try {
+        const bulkOps = shifts.map(shift => ({
+            updateOne: {
+                filter: { _id: shift._id },
+                update: { $set: shift },
+                upsert: true // Insert the document if it doesn't exist
+            }
+        }));
+
+        await Shift.bulkWrite(bulkOps);
+        res.json({ success: true });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ success: false, message: 'Sync failed', error: err.message });
+    }
 });
 
 // Start the server

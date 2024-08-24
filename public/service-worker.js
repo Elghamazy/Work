@@ -1,6 +1,6 @@
 self.addEventListener('install', (event) => {
   event.waitUntil(
-    caches.open('shift-tracker-cache-v3').then((cache) => {
+    caches.open('shift-tracker-cache-v4').then((cache) => {
       return cache.addAll([
         '/',
         '/index.html',

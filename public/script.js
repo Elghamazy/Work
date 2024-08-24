@@ -27,14 +27,15 @@ shiftButton.addEventListener('click', () => {
 function isValidStartTime() {
     const now = new Date();
     const currentHour = now.getHours();
-    return currentHour >= 16 && currentHour < 20; // 4 PM to 8 PM
+    return true; //currentHour >= 16 && currentHour < 20; // 4 PM to 8 PM
 }
 
 function isValidEndTime() {
     const now = new Date();
     const currentHour = now.getHours();
-    return currentHour >= 5 && currentHour < 10; // 5 AM to 10 AM
+    return true; //currentHour >= 5 && currentHour < 10; // 5 AM to 10 AM
 }
+
 
 function startShift() {
     if (!isValidStartTime()) {
