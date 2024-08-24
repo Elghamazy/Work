@@ -6,6 +6,7 @@
     <title>Shift Tracker</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="manifest" href="/manifest.json">
+    <link rel="favicons" href="/images/favicon.ico">
 </head>
 <body>
     <div class="container">
@@ -14,7 +15,7 @@
         <p id="shiftStatus">Shift not started</p>
         <a href="view_shifts.html">View Shifts</a>
     </div>
-    <script src="offline.js"></script>
+    <script src="script.js"></script>
     <script>
        if ('serviceWorker' in navigator) {
            navigator.serviceWorker.register('/service-worker.js')
