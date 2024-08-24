@@ -5,46 +5,46 @@
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#007bff",
-    "icons": [
+  "icons": [
     {
-      "src": "public/images/android-launchericon-512-512.png",
+      "src": "/images/android-launchericon-512-512.png",
       "sizes": "512x512"
     },
     {
-      "src": "public/images/android-launchericon-192-192.png",
+      "src": "/images/android-launchericon-192-192.png",
       "sizes": "192x192"
     },
     {
-      "src": "public/images/android-launchericon-144-144.png",
+      "src": "/images/android-launchericon-144-144.png",
       "sizes": "144x144"
     },
     {
-      "src": "public/images/android-launchericon-96-96.png",
+      "src": "/images/android-launchericon-96-96.png",
       "sizes": "96x96"
     },
     {
-      "src": "public/images/android-launchericon-72-72.png",
+      "src": "/images/android-launchericon-72-72.png",
       "sizes": "72x72"
     },
     {
-      "src": "public/images/android-launchericon-48-48.png",
+      "src": "/images/android-launchericon-48-48.png",
       "sizes": "48x48"
     }
-    ],
+  ],
   "shortcuts": [
     {
       "name": "Start Shift",
       "short_name": "Start",
       "description": "Log the start of your shift",
       "url": "/?action=start",
-      "icons": [{ "src": "public/images/start.png", "sizes": "96x96" }]
+      "icons": [{ "src": "/images/start.png", "sizes": "96x96" }]
     },
     {
       "name": "End Shift",
       "short_name": "End",
       "description": "Log the end of your shift",
       "url": "/?action=end",
-      "icons": [{ "src": "public/images/end.png", "sizes": "96x96" }]
+      "icons": [{ "src": "/images/end.png", "sizes": "96x96" }]
     }
   ]
 }
